@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .row.banner
+    .col-12
+      h1= title
+   
+  - if (errorMsg == 'val')
+      .alert.alert-danger(role="alert") All fields required, please try again
+  - else if(errorMsg == 'success') 
+      .alert.alert-success(role="alert") Saved Successfully
+            
+  //- span
+  //-   b.text-danger.bg-light= errorMsg
+  //-   b.text-success.bg-light= successMsg      
+  .row.justify-content-center
+    .col-12.col-md-8
+      form#addRestaurant(action="", method="post", role="form")
+        .form-group.row
+            label.col-10.text-left.col-sm-6.col-form-label(for="restaurantsNameID") Restaurant :
+            .col-12.col-sm-10
+                select#restaurantsNameID.form-control.input-sm(name="restaurantsNameID")
+                    each restVal in resutaurantsList
+                        option(value=restVal.value)= restVal.name
+        .form-group.row
+            label.col-10.text-left.col-sm-6.col-form-label(for="name") Food Name :
+            .col-12.col-sm-10
+                input#name.form-control(name="name")
+        .form-group.row
+            label.col-10.text-left.col-sm-6.col-form-label(for="price") Food Price :
+            .col-12.col-sm-10
+                input#price.form-control(name="price")
+        button.btn.btn-warning.float-left Add New Food

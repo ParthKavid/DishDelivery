@@ -1,0 +1,31 @@
+<h1 class="mt-4 display-3">List of Restaurants</h1>
+<h4>Here is a list of best Restaurants</h4>
+<ul class="list-group">
+    <li class="list-group-item m-2" style="background-color:rgba(0,0,0,0.6);border: solid;border-color: white;"
+        *ngFor="let item of restaurants">
+        <div class="col-md-12 text-center">
+            <a href="/list/{{item._id}}">
+                <h1>{{item.restaurantsName}}</h1>
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img class="imgsize m-3" src="../../assets/{{item.imagePath}}" alt="{{item.restaurantsName}}"
+                    style='max-width:100%; max-height:300px;border:solid;border-color:#423b3b'>
+            </div>
+            <div class="col-md-6 font-weight-bold" style="align-self:center">
+                <p class="h4 mb-4">
+                    Address : {{item.address}}, {{item.city}}, {{item.province}}, {{item.postalCode}}
+                </p>
+
+                <!-- <li *ngFor="let val of {{item.rating}}"></li> -->
+                <span *ngFor='let val of counter(item.rating);let i = index' class="fa fa-star" style="color:yellow">
+                </span>
+                <span *ngFor='let val of counter(5 -item.rating);let i = index' class="fa fa-star">
+                </span>
+                <p class="h4 mb-4">Rating : {{item.rating}}</p>
+            </div>
+        </div>
+
+    </li>
+</ul>

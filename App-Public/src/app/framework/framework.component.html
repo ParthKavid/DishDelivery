@@ -1,0 +1,35 @@
+<nav class="navbar fixed-top navbar-expand-md navbar-light" style="background-color:#000000;border-color:#ffffff">
+    <div class="container">
+        <a routerLink="" class="navbar-brand">
+            <span class="font-weight-bold h2" style="color:red">D</span>
+            <span class="h4">ish</span>
+            <span class="h2 font-weight-bold" style="color:red">D</span>
+            <span class="h4">elivery</span>
+        </a>
+        <button class="navbar-toggler fas fa-bars" type="button" data-toggle="collapse" data-target="#navbarMain">
+            <span class="navbar-dark"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarMain">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> <a routerLink="about" class="nav-link" >About</a></li>
+                <li class="nav-item"> <a routerLink="list" class="nav-link" >List</a></li>
+                <li class="nav-item float-right"> <a routerLink="new" class="nav-link" >Add Restaurant</a></li>
+                <li class="nav-item float-right"> <a routerLink="addFood" class="nav-link" >Add Food </a></li>
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+<div class="container content text-center" style="margin-top:60px">
+    <router-outlet></router-outlet>
+    
+</div>
+<footer class="p-1 mt-3" style="background:black;opacity:0.5">
+    <div class="text-center row" style="bottom: 0px;">
+        <div class="col-md-6">
+            <h5>DishDelivery</h5>
+        </div>
+        <div class="col-md-6">© 2022 DishDelivery </div>
+    </div>
+</footer>

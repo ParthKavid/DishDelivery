@@ -1,0 +1,67 @@
+<div class="row banner">
+    <div class="col-12">
+        <h1>{{content.title}} Restaurant</h1>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+        <form (ngSubmit)="onSubmitRestaurant()">
+            <div *ngIf="errorMsg == 'val'">
+                <span class="alert alert-danger" role="alert"> Name, Phone and Address fields required, please try
+                    again</span>
+            </div>
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="restaurantsName" required="required">Name :</label>
+                <div class="col-12 col-sm-10">
+                    <input [(ngModel)]="newRestaurant.restaurantsName" id="restaurantsName" class="form-control" name="restaurantsName">
+                    <input type="hidden" [(ngModel)]="newRestaurant._id" id="_id" class="form-control" name="_id">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="city">City :</label>
+                <div class="col-12 col-sm-10">
+                    <input [(ngModel)]="newRestaurant.city" id="city" class="form-control" name="city">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="province">Province :</label>
+                <div class="col-12 col-sm-10">
+                    <input [(ngModel)]="newRestaurant.province" id="province" class="form-control" name="province">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="postalCode"> Postal Code :</label>
+                <div class="col-12 col-sm-10">
+                    <input [(ngModel)]="newRestaurant.postalCode"  id="postalCode" class="form-control" name="postalCode">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="phoneNumber" required="required"> Phone :</label>
+                <div class="col-12 col-sm-10">
+                    <input [(ngModel)]="newRestaurant.phoneNumber" id="phoneNumber" class="form-control" name="phoneNumber">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="address" required="required"> Address :</label>
+                <div class="col-12 col-sm-10">
+                    <textarea [(ngModel)]="newRestaurant.address" id="address" class="form-control" name="address" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="rating"> Rating :</label>
+                <div class="col-12 col-sm-10">
+                    <select [(ngModel)]="newRestaurant.rating" id="rating" class="form-control" name="rating">
+                        <option [ngValue]="5">5</option>
+                        <option [ngValue]="4">4</option>
+                        <option [ngValue]="3">3</option>
+                        <option [ngValue]="2">2</option>
+                        <option [ngValue]="1">1</option>
+                    </select>
+                </div>
+            </div>
+            <button  type="submit" class="btn btn-warning col-md-3 mt-5">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>

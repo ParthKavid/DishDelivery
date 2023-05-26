@@ -1,0 +1,48 @@
+
+<ul class="list-group">
+    <li class="list-group-item m-2" style="background-color:rgba(0,0,0,0.6);border: solid;border-color: white;">
+        <div class="col-md-12 text-center">
+            <div class="row float-right">
+                <a class='btn btn-success btn-sm mr-2' (click)='onUpdate(newRestaurant._id)'><span class="h5 font-weight-bold"><i class="fa fa-edit"></i></span> </a> 
+                <a class='btn btn-primary btn-sm ' (click)='onDelete()'><span class="h5 font-weight-bold"><i class="fa fa-trash"></i></span> </a> 
+            </div>
+            <h1>
+               {{newRestaurant.restaurantsName}} 
+            </h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="imgsize m-3" src="../../assets/{{newRestaurant.imagePath}}" alt=newRestaurant.restaurantsName style='max-width:100%; max-height:300px;border:solid;border-color:#423b3b'>
+                </div>
+                <div class="col-md-6 font-weight-bold" style="align-self:center">
+                    <p class="h4 mb-4">
+                        Address : {{newRestaurant.address}} , {{newRestaurant.city}}, {{newRestaurant.province}}, {{newRestaurant.postalCode}} 
+                    </p>
+                    <span *ngFor='let val of counter(newRestaurant.rating);let i = index' class="fa fa-star" style="color:yellow">
+                    </span>
+                    <span *ngFor='let val of counter(5 -newRestaurant.rating);let i = index' class="fa fa-star">
+                    </span>
+                    <p class="h4 mb-4">Rating : {{newRestaurant.rating}}</p>
+                    <p class="h4 mb-4">Phone Number : {{newRestaurant.phoneNumber}}</p> 
+                    <a class='btn btn-warning btn-lg  mt-3' href='tel:{{newRestaurant.phoneNumber}}'><span class="h5 font-weight-bold">Call Now</span> </a> 
+                </div>
+            </div>
+            <div class="col-md-12 mt-5 ">
+                <h5>Food Items :</h5> 
+                <table class="table">
+                    <tbody>
+                        <tr *ngFor="let val of newRestaurant.specialFood">
+                           <td>{{val.name}}</td> 
+                           <td>{{val.price}}</td> 
+                           <td><a class='btn btn-primary btn-sm ' (click)='onDeleteFood(val._id,newRestaurant._id)'><span class="h5 font-weight-bold"><i class="fa fa-trash"></i></span> </a> </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+        </div>
+    </li>
+</ul>
+                        
+                        
+                    
+                         
+                            

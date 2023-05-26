@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1.mt-4.display-3= "List of Restaurants"
+  h4 Here is a list of best Restaurants
+  ul.list-group
+    each val,index  in restaurants
+        li.list-group-item.m-2(style="background-color:rgba(0,0,0,0.6);border: solid;border-color: white;")
+            .col-md-12.text-center
+                a(href="/list/"+val["_id"])
+                    h1 
+                        = val["restaurantsName"] 
+            .row 
+                .col-md-6
+                    img.imgsize.m-3(src=val["imagePath"] alt=val["name"] style='max-width:100%; max-height:300px;border:solid;border-color:#423b3b')    
+                .col-md-6.font-weight-bold(style="align-self:center")
+                    p.h4.mb-4= "Address : " + val["address"] +", "+ val["city"] +", "+ val["province"] +", "+ val["postalCode"] 
+                    
+                    - for (var x = 1; x <= Number(val["rating"]); x++)
+                        span.fa.fa-star(style="color:yellow")
+
+                    - for (var x = 0; x < 5 - Number(val["rating"]); x++)
+                        span.fa.fa-star   
+                    p.h4.mb-4= "Rating : " + val["rating"]
+                    //- p.h4.mb-4= "Phone Number : " + val["phone"]
+                    //- a(class='btn btn-warning btn-lg  mt-3' href='tel:'+val["phone"]) 
+                    //-     span.h5.font-weight-bold Call Now 
+            //- .col-md-12 
+            //-     h5 Special Food :
+            //-     each v,i in val["specialFood"]
+            //-         h6.mr-1.ml-1  
+            //-             =v["name"] + " ("+ v["price"] +")"             
+block scripts 
+      script(src='/build/main.063ca20aad09c40b.js')
+      script(src='/build/polyfills.c416fbf9123013a5.js')
+      script(src='/build/runtime.b9ff166c15be9be9.js')

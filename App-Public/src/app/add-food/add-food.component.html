@@ -1,0 +1,43 @@
+<div class="row banner">
+    <div class="col-12">
+        <h1>Add Food</h1>
+    </div>
+</div>
+<div *ngIf="errorMsg == 'error'" class="alert alert-danger" role="alert">
+    All fields required, please try again
+</div>
+<div *ngIf="errorMsg == 'success'" class="alert alert-success" role="alert">
+    Saved Successfully
+</div>
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+        <form (ngSubmit)="onSubmitFood()">
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="restaurantsNameID"> Restaurant :</label>
+                <div class="col-12 col-sm-10">
+                    <select [(ngModel)]="newRestaurant._id" id="_id" class="form-control" name="_id">
+                        <option *ngFor="let val of restaurants" [ngValue]="val._id">{{val.restaurantsName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="name" required="required">Name :</label>
+                <div class="col-12 col-sm-10">
+                    <input [(ngModel)]="newRestaurant.specialFood[0]['name']" id="name" class="form-control" name="name">
+                    <input type="hidden" [(ngModel)]="newRestaurant.specialFood[0]['_id']" id="_id" class="form-control" name="_id">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-10 text-left col-sm-3 col-form-label" for="price">Price :</label>
+                <div class="col-12 col-sm-10">
+                    <input [(ngModel)]="newRestaurant.specialFood[0]['price']" id="price" class="form-control"
+                        name="price">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-warning col-md-4 float-left mt-5">
+                Add New Food
+            </button>
+        </form>
+
+    </div>
+</div>

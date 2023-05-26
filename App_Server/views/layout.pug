@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/all.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/build/style.css')
+  body(style="background-image:url('../images/bg.jpeg')")
+    nav.navbar.fixed-top.navbar-expand-md.navbar-light(style="background-color:#000000;border-color:#ffffff")
+      .container 
+        a.navbar-brand(href='/') 
+          span.font-weight-bold.h2(style="color:red") D
+          span.h4 ish
+          span.h2.font-weight-bold(style="color:red") D
+          span.h4 elivery
+        button.navbar-toggler.fas.fa-bars(type='button', data-toggle='collapse', data-target='#navbarMain')
+          span.navbar-dark
+        #navbarMain.navbar-collapse.collapse 
+          ul.navbar-nav.mr-auto 
+            li.nav-item 
+              a.nav-link(href='/about') About
+            li.nav-item 
+              a.nav-link(href='/list') List
+            li.nav-item.float-right 
+              a.nav-link(href='/new') Add Restaurant
+            li.nav-item.float-right 
+              a.nav-link(href='/addFood') Add Food  
+
+    .container.content.text-center(style="margin-top:60px")
+      block content
+
+    footer.p-1.mt-3(style="background:black;opacity:0.5") 
+      .text-center.row(style="bottom: 0px;") 
+        .col-md-6 
+          h5 DishDelivery
+        .col-md-6 © 2022 DishDelivery  
+
+    block scripts 
+      script(src='/build/main.063ca20aad09c40b.js')
+      script(src='/build/polyfills.c416fbf9123013a5.js')
+      script(src='/build/runtime.b9ff166c15be9be9.js')
+      script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+      script(src='/javascripts/bootstrap.min.js')

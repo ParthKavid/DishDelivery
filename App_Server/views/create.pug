@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  .row.banner
+    .col-12
+      h1= title
+
+  .row.justify-content-center
+    .col-12.col-md-8
+      form#addRestaurant(action="", method="post", role="form")
+        - if (errorMsg == 'val')
+          .alert.alert-danger(role="alert") Name, Phone and Address fields required, please try again
+        .form-group.row
+          label.col-10.text-left.col-sm-3.col-form-label(for="restaurantsName") Name :
+          .col-12.col-sm-10
+            input#restaurantsName.form-control(name="restaurantsName")
+        .form-group.row
+          label.col-10.text-left.col-sm-3.col-form-label(for="city") City :
+          .col-12.col-sm-10
+            input#city.form-control(name="city")
+        .form-group.row
+          label.col-10.text-left.col-sm-3.col-form-label(for="province") Province :
+          .col-12.col-sm-10
+            input#province.form-control(name="province")
+        .form-group.row
+          label.col-10.text-left.col-sm-3.col-form-label(for="postalCode") Postal Code :
+          .col-12.col-sm-10
+            input#postalCode.form-control(name="postalCode")
+        .form-group.row
+          label.col-10.text-left.col-sm-3.col-form-label(for="phoneNumber") Phone :
+          .col-12.col-sm-10
+            input#phoneNumber.form-control(name="phoneNumber")
+        .form-group.row
+          label.col-10.text-left.col-sm-3.col-form-label(for="address") Address :
+          .col-12.col-sm-10
+            textarea#address.form-control(name="address", rows="5")
+        .form-group.row
+          label.col-10.text-left.col-sm-3.col-form-label(for="rating") Rating :
+          .col-12.col-sm-4
+            select#rating.form-control.input-sm(name="rating")
+              option 5
+              option 4
+              option 3
+              option 2
+              option 1
+        button.btn.btn-warning.col-md-3.mt-5 Submit
+    //- .col-12.col-md-4
+    //-     .form-group.row
+    //-         label.col-10.col-sm-6.col-form-label(for="name") Food Name :
+    //-         .col-12.col-sm-10
+    //-             input#name.form-control(name="name")
+    //-     .form-group.row
+    //-         label.col-10.col-sm-6.col-form-label(for="price") Food Price :
+    //-         .col-12.col-sm-10
+    //-             input#price.form-control(name="price")
+    //-     button.btn.btn-warning.float-left Add New Food
